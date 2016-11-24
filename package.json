@@ -1,0 +1,37 @@
+{
+  "name": "deepdancer-demo",
+  "version": "1.0.0",
+  "description": "What will you find here ===",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/deepdancer/deepdancer-demo.git"
+  },
+  "keywords": [
+    "deepdancer",
+    "demo"
+  ],
+  "author": "Fräntz Miccoli <frantz.miccoli+npm@gmail.com> (http://thedarkside.frantzmiccoli.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deepdancer/deepdancer-demo/issues"
+  },
+  "homepage": "https://github.com/deepdancer/deepdancer-demo#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "fs-promise": "^0.5.0",
+    "request": "^2.74.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}

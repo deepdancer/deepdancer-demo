@@ -1,7 +1,15 @@
-var fs = require('fs');
+var configFactory = function(fs) {
 
-var storagePath = fs.realpathSync(__dirname + '/../../storage/users');
+    var storagePath = fs.realpathSync(__dirname + '/../../storage/users');
 
-module.exports = {
-    storagePath: storagePath
+    var config = {
+        storagePath: storagePath
+    };
+
+    return config;
 };
+
+configFactory.__dependencies = ['fs'];
+configFactory.__type = 'factory';
+
+module.exports = configFactory;

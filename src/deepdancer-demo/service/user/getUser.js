@@ -1,7 +1,15 @@
-var getEntry = require('deepdancer-demo/service/storage/getEntry');
+var getUserFactory = function(getEntry) {
 
-var getUser = function(username) {
-    return getEntry(username);
+    var getUser = function(username) {
+        return getEntry(username);
+    };
+
+    return getUser;
 };
 
-module.exports = getUser;
+getUserFactory.__dependencies = [
+    'deepdancer-demo/service/storage/getEntry'
+];
+getUserFactory.__type = 'factory';
+
+module.exports = getUserFactory;

@@ -1,14 +1,22 @@
-var getEntry = require('deepdancer-demo/service/storage/getEntry');
-var createEntry = require('deepdancer-demo/service/storage/createEntry');
-var updateEntry = require('deepdancer-demo/service/storage/updateEntry');
+var upsertUserFactory = function(getEntry, createEntry, updateEntry) {
 
-var upsertUser = function(username, ip) {
-    return getEntry(username).then(function(entry) {
-        if (typeof(entry) === 'undefined') {
-            return createEntry(username, ip);
-        }
-        return updateEntry(username, ip);
-    });
+    var upsertUser = function(username, ip) {
+        return getEntry(username).then(function(entry) {
+            if (typeof(entry) === 'undefined') {
+                return createEntry(username, ip);
+            }
+            return updateEntry(username, ip);
+        });
+    };
+
+    return upsertUser;
 };
 
-module.exports = upsertUser;
+upsertUserFactory.__dependencies = [
+    'deepdancer-demo/service/storage/getEntry',
+    'deepdancer-demo/service/storage/createEntry',
+    'deepdancer-demo/service/storage/updateEntry'
+];
+upsertUserFactory.__type = 'factory';
+
+module.exports = upsertUserFactory;

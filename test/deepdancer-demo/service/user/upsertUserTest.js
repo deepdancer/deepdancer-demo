@@ -1,6 +1,9 @@
-var deleteEntry = require('deepdancer-demo/service/storage/deleteEntry');
-var upsertUser = require('deepdancer-demo/service/user/upsertUser');
-var getUser = require('deepdancer-demo/service/user/getUser');
+var dependencies = require('deepdancer-demo/dependencies');
+
+var deleteEntry =
+    dependencies.get('deepdancer-demo/service/storage/deleteEntry');
+var upsertUser = dependencies.get('deepdancer-demo/service/user/upsertUser');
+var getUser = dependencies.get('deepdancer-demo/service/user/getUser');
 
 var expect = require('chai').expect;
 

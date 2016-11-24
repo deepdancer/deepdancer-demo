@@ -1,10 +1,14 @@
-var fsPromise = require('fs-promise');
+var deleteEntryFactory = function(fsPromise, config) {
 
-var config = require('deepdancer-demo/config');
+    var deleteEntry = function(username) {
+        var targetPath = config.storagePath + '/' + username + '.json';
+        return fsPromise.unlink(targetPath);
+    };
 
-var deleteEntry = function(username) {
-    var targetPath = config.storagePath + '/' + username + '.json';
-    return fsPromise.unlink(targetPath);
+    return deleteEntry;
 };
 
-module.exports = deleteEntry;
+deleteEntryFactory.__dependencies = ['fs-promise' , 'deepdancer-demo/config'];
+deleteEntryFactory.__type = 'factory';
+
+module.exports = deleteEntryFactory;

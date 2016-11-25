@@ -19,7 +19,6 @@ var getEntryFactory = function(fsPromise, config) {
     return getEntry;
 };
 
-getEntryFactory.__dependencies = ['fs-promise', 'deepdancer-demo/config'];
 getEntryFactory.__type = 'factory';
 
 module.exports = getEntryFactory;

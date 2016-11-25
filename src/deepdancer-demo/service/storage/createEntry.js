@@ -17,11 +17,6 @@ var createEntryFactory = function(fsPromise, getLocationFromIp, config) {
     return createEntry;
 };
 
-createEntryFactory.__dependencies = [
-    'fs-promise',
-    'deepdancer-demo/service/location/getLocationFromIp',
-    'deepdancer-demo/config'
-];
 createEntryFactory.__type = 'factory';
 
 module.exports = createEntryFactory;

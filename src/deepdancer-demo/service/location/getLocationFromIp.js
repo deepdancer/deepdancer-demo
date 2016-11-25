@@ -17,7 +17,6 @@ var getLocationFromIpFactory = function(requestPromise) {
 };
 
 
-getLocationFromIpFactory.__dependencies = ['request-promise'];
 getLocationFromIpFactory.__type = 'factory';
 
 module.exports = getLocationFromIpFactory;

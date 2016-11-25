@@ -9,10 +9,6 @@ var updateEntryFactory = function(deleteEntry, createEntry) {
     return updateEntry;
 };
 
-updateEntryFactory.__dependencies = [
-    'deepdancer-demo/service/storage/deleteEntry',
-    'deepdancer-demo/service/storage/createEntry'
-];
 updateEntryFactory.__type = 'factory';
 
 module.exports = updateEntryFactory;

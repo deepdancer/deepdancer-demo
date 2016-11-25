@@ -35,11 +35,6 @@ var appFactory = function(express, getUser, upsertUser) {
     return app;
 };
 
-appFactory.__dependencies = [
-    'express',
-    'deepdancer-demo/service/user/getUser',
-    'deepdancer-demo/service/user/upsertUser'
-];
 appFactory.__type = 'factory';
 
 module.exports = appFactory;

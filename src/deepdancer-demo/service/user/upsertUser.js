@@ -12,11 +12,6 @@ var upsertUserFactory = function(getEntry, createEntry, updateEntry) {
     return upsertUser;
 };
 
-upsertUserFactory.__dependencies = [
-    'deepdancer-demo/service/storage/getEntry',
-    'deepdancer-demo/service/storage/createEntry',
-    'deepdancer-demo/service/storage/updateEntry'
-];
 upsertUserFactory.__type = 'factory';
 
 module.exports = upsertUserFactory;

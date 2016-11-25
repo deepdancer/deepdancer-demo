@@ -8,7 +8,7 @@ var deleteEntryFactory = function(fsPromise, config) {
     return deleteEntry;
 };
 
-deleteEntryFactory.__dependencies = ['fs-promise' , 'deepdancer-demo/config'];
+
 deleteEntryFactory.__type = 'factory';
 
 module.exports = deleteEntryFactory;

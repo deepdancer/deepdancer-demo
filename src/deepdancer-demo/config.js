@@ -9,7 +9,6 @@ var configFactory = function(fs) {
     return config;
 };
 
-configFactory.__dependencies = ['fs'];
 configFactory.__type = 'factory';
 
 module.exports = configFactory;

@@ -1,8 +1,8 @@
 var dependencies = require('deepdancer-demo/dependencies');
 
 var deleteEntry =
-    dependencies.get('deepdancer-demo/service/storage/deleteEntry');
-var getUser = dependencies.get('deepdancer-demo/service/user/getUser');
+    dependencies.get('deleteEntry');
+var getUser = dependencies.get('getUser');
 
 var expect = require('chai').expect;
 var sinon = require('sinon');
@@ -12,7 +12,7 @@ describe('deepdancer-demo/service/user/upsertUser', function() {
 
     it('should work in integration', function(done) {
         var upsertUser =
-            dependencies.get('deepdancer-demo/service/user/upsertUser');
+            dependencies.get('upsertUser');
         deleteEntry('alanmoore').then(function() { // starts empty
             return upsertUser('alanmoore', '192.12.32.43')
         }).then(function () {
@@ -55,19 +55,18 @@ describe('deepdancer-demo/service/user/upsertUser', function() {
             writeFile: writeFileMock
         };
         var injectedDependencies = {
-            'request-promise': requestPromiseMock,
-            'fs-promise': fsPromiseMock
+            'requestPromise': requestPromiseMock,
+            'fsPromise': fsPromiseMock
         };
         var upsertUser =
-            dependencies.get('deepdancer-demo/service/user/upsertUser', 'call',
-                injectedDependencies);
+            dependencies.get('upsertUser', 'call', injectedDependencies);
 
         upsertUser('alanmoore', '191.12.32.43').then(function() {
             expect(requestPromiseMock.callCount).to.equal(1);
             expect(existsMock.callCount).to.equal(1);
             expect(writeFileMock.callCount).to.equal(1);
             done();
-        });
+        }).catch(function() {console.log(arguments)});
     });
 
 });

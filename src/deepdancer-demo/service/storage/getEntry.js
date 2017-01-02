@@ -1,7 +1,3 @@
-var fsPromise = require('fs-promise');
-
-var config = require('deepdancer-demo/config');
-
 var getEntryFactory = function(fsPromise, config) {
 
     var getEntry = function (username) {

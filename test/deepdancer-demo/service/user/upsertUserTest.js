@@ -66,7 +66,7 @@ describe('deepdancer-demo/service/user/upsertUser', function() {
             expect(existsMock.callCount).to.equal(1);
             expect(writeFileMock.callCount).to.equal(1);
             done();
-        }).catch(function() {console.log(arguments)});
+        });
     });
 
 });
